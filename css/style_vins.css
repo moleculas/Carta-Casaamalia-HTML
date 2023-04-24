@@ -1,0 +1,9 @@
+.lg-object{
+	max-width: 600px !important;
+}
+@media only screen and (max-width: 560px) {
+	.lg-object{
+		max-width: 100% !important;
+	}
+}
+
