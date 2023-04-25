@@ -69,6 +69,7 @@ const gestionaCarta = (res, idioma, objeto) => {
             $(`#bckgr${objeto === "plats" ? index : index + 1}`).attr("data-bg", `${rutaImatgesHeaders}${titol.imatge}`);
         }
     });
+    objeto === "plats" && !res.items.some(item => item.categoria === 1) && $('.visible-cat-1').addClass('ocultar');
     const divsToggleP = [], divsToggleA = [];
     const categoriaAfegir = categoriesCarta[objeto].map((categoria, index) =>
         res.items
@@ -286,7 +287,7 @@ function initRestabook(divsToggleP, divsToggleA, idioma, PARADES, PRODUCCIO) {
         popupPunts($(this).data('penin'), $(this).data('parker'));
     });
     $(".botoAlergens0, .botoAlergens1, .botoAlergens2, .botoAlergens3").on("click", function (e) {
-        e.preventDefault();       
+        e.preventDefault();
         popupAlergens($(this).data('alergen'), idioma);
     });
     $("#alergens").click(function () {
