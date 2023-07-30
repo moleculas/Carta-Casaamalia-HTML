@@ -75,6 +75,8 @@ const popupPunts = (penin, parker) => {
         "93": "93_pe.png",
         "94": "94_pe.png",
         "95": "95_pe.png",
+        "96": "96_pe.png",
+        "97": "97_pe.png",
     };
     const imagesPr = {
         "90": "90_pr.png",
