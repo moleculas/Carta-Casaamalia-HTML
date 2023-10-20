@@ -23,6 +23,11 @@ const cargaCartaPrincipal = () => {
     });
 };
 
+const reemplazarApostrofe = (cadena) => {
+    var cadenaModificada = cadena.replace(/’/g, "'");
+    return cadenaModificada;
+};
+
 const gestionaCarta = (res, idioma, objeto) => {
     const tipus = res.carta.tipus;
     const PARADES = objeto === "plats" ? res.parades.map(parada => ({
@@ -85,7 +90,7 @@ const gestionaCarta = (res, idioma, objeto) => {
                 .map((item, index) => {
                     const arrParada = item.parada?.split(",") || null;
                     const arrProduccio = item.produccio?.split(",") || null;
-                    const arrAlergens = item.alergens.split(",");                 
+                    const arrAlergens = item.alergens.split(",");
                     let parades = "", produccio = "", alergens = "";
                     let totalMarcadorsP = 0, totalMarcadorsA = 0;
                     const claseDestacat = +item.destacat === 1 ? "destacat" : "";
@@ -108,13 +113,13 @@ const gestionaCarta = (res, idioma, objeto) => {
                             ${+item.destacat === 1 ? ("<div class='destacat-icona'><i class='fa fa-star'></i></div>") : ""}
                             <a href="${rutaImatgesItems}${item.imatge}" class="hero-menu-item-img image-popup ${claseDestacat}"><img src="${rutaImatgesItems}thumbnails/${item.imatge}" alt=""></a>
                             <div class="hero-menu-item-title fl-wrap">
-                                <h6>${propietatsPerIdioma[`nomsItemsCategoria${categoria}`][index]}</h6>
+                                <h6>${reemplazarApostrofe(propietatsPerIdioma[`nomsItemsCategoria${categoria}`][index])}</h6>
                                 <div class="hmi-dec"></div>
                                 <span class="hero-menu-item-price">${item.preu}</span>
                                 ${parades}${produccio}${alergens}
                             </div>                       
                             <div id="des-${categoria}-${index}" class="descripcio hero-menu-item-details marcadors${totalMarcadorsP || ''}">
-                                <p>${propietatsPerIdioma[`descripcionsItemsCategoria${categoria}`][index]}</p>
+                                <p>${reemplazarApostrofe(propietatsPerIdioma[`descripcionsItemsCategoria${categoria}`][index])}</p>
                             </div>                      
                         </div>`;
                 }).join('')
@@ -122,7 +127,7 @@ const gestionaCarta = (res, idioma, objeto) => {
         categoriesCarta[objeto].forEach((_, index) => $(`#menu-section-${index}`).append(categoriaAfegirCarta[index]));
     };
     if (objeto === "vins") {
-        const categoriaAfegirVins = ['', '', '', ''];      
+        const categoriaAfegirVins = ['', '', '', ''];
         for (const categoria of categoriesCarta[`vins`]) {
             const vins = res.items.filter(item => item.categoria === categoria);
             const todasZonasVinsNotNull = vins.every(vi => vi.zona !== null);
@@ -161,14 +166,14 @@ const gestionaCarta = (res, idioma, objeto) => {
                             return `<div class="hero-menu-item">
                                     <a href="${rutaImatgesItems}${item.imatge}" class="hero-menu-item-img image-popup"><img src="${rutaImatgesItems}thumbnails/${item.imatge}" alt=""></a>
                                     <div class="hero-menu-item-title fl-wrap">
-                                        <h6>${item.nom}</h6>
+                                        <h6>${reemplazarApostrofe(item.nom)}</h6>
                                         <div class="hmi-dec"></div>
                                         <span class="hero-menu-item-price">${item.preu}</span>
                                         ${puntuacions}
                                     </div>                       
                                     <div class="hero-menu-item-details ${puntuacions !== '' ? `medalla` : ''}">
                                         <p class="denominacio">${item.denominacio}</p>
-                                        <p>${item[`descripcio_${idioma}`]}</p>
+                                        <p>${reemplazarApostrofe(item[`descripcio_${idioma}`])}</p>
                                     </div>                      
                                     </div>`;
                         }).join('');
