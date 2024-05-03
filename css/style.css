@@ -3977,3 +3977,9 @@ section.parallax-section.hero-section .section-title .dots-separator span:after,
 	padding-top: 35px;
 	padding-bottom: 75px;
 }
+
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+	.show-share-btn {
+	  width: 55px;
+	}
+  }

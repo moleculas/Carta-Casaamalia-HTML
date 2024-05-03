@@ -48,7 +48,7 @@ const gestionaCarta = (res, idioma, objeto) => {
     const rutaImatgesZones = (window.location.href.indexOf("casaamalia.com") > -1)
         ? `gestio/api/images/zones/`
         : `../api_casaamalia_v2/images/zones/`;
-    const categoriesCarta = { plats: [1, 2, 3, 4, 5], vins: [1, 2, 3, 4] };
+    const categoriesCarta = { plats: [1, 2, 3, 4, 5], vins: [1, 2, 3, 4, 5], cocktails: [1, 2] };
     const propietatsPerIdioma = {
         titolCarta: res.carta[`nom_${objeto}_${idioma}`],
         titolCategoria: res.titols
@@ -69,7 +69,7 @@ const gestionaCarta = (res, idioma, objeto) => {
             return obj;
         }, {})
     };
-    const imatgeGeneral = objeto === "plats" ? res.carta.imatge_plats : res.carta.imatge_vins;
+    const imatgeGeneral = objeto === "plats" ? res.carta.imatge_plats : objeto === "vins" ? res.carta.imatge_vins : res.carta.imatge_cocktails;
     $('.titolCarta').text(propietatsPerIdioma.titolCarta);
     $("#bckgrGn").attr("data-bg", `${rutaImatgesHeaders}${imatgeGeneral}`);
     res.titols.forEach((titol, index) => {
@@ -80,6 +80,8 @@ const gestionaCarta = (res, idioma, objeto) => {
     });
     //categoria destacts oculta per defecte
     //objeto === "plats" && !res.items.some(item => item.categoria === 1) && $('.visible-cat-1').addClass('ocultar');
+    //categoria copas oculta temporalment
+    objeto === "vins" && $('.visible-cat-1').addClass('ocultar');
     objeto === "plats" && $('.visible-cat-1').addClass('ocultar');
     const divsToggleP = [], divsToggleA = [];
     if (objeto === "plats") {
@@ -127,7 +129,7 @@ const gestionaCarta = (res, idioma, objeto) => {
         categoriesCarta[objeto].forEach((_, index) => $(`#menu-section-${index}`).append(categoriaAfegirCarta[index]));
     };
     if (objeto === "vins") {
-        const categoriaAfegirVins = ['', '', '', ''];
+        const categoriaAfegirVins = ['', '', '', '', ''];
         for (const categoria of categoriesCarta[`vins`]) {
             const vins = res.items.filter(item => item.categoria === categoria);
             const todasZonasVinsNotNull = vins.every(vi => vi.zona !== null);
@@ -208,13 +210,34 @@ const gestionaCarta = (res, idioma, objeto) => {
         };
         categoriesCarta[objeto].forEach((_, index) => $(`#menu-section-${index + 1}`).append(categoriaAfegirVins[index]));
     };
+    if (objeto === "cocktails") {
+        const categoriaAfegirCarta = categoriesCarta[`cocktails`].map((categoria, index) =>
+            res.items
+                .sort((a, b) => a.ordre - b.ordre)
+                .filter(item => item.categoria === categoria)
+                .map((item, index) => {
+                    return `<div class="hero-menu-item">                         
+                            <a href="${rutaImatgesItems}${item.imatge}" class="hero-menu-item-img image-popup"><img src="${rutaImatgesItems}thumbnails/${item.imatge}" alt=""></a>
+                            <div class="hero-menu-item-title fl-wrap">
+                                <h6>${reemplazarApostrofe(propietatsPerIdioma[`nomsItemsCategoria${categoria}`][index])}</h6>
+                                <div class="hmi-dec"></div>
+                                <span class="hero-menu-item-price">${item.preu}</span>                               
+                            </div>                       
+                            <div id="des-${categoria}-${index}" class="descripcio hero-menu-item-details">
+                                <p>${reemplazarApostrofe(propietatsPerIdioma[`descripcionsItemsCategoria${categoria}`][index])}</p>
+                            </div>                      
+                        </div>`;
+                }).join('')
+        );
+        categoriesCarta[objeto].forEach((_, index) => $(`#menu-section-${index}`).append(categoriaAfegirCarta[index]));
+    };
     $("#any").text(new Date().getFullYear());
-    initRestabook(divsToggleP, divsToggleA, idioma, PARADES, PRODUCCIO);
+    initRestabook(divsToggleP, divsToggleA, idioma, PARADES, PRODUCCIO, objeto);
     initparallax();
 };
 
 //   all ------------------
-function initRestabook(divsToggleP, divsToggleA, idioma, PARADES, PRODUCCIO) {
+function initRestabook(divsToggleP, divsToggleA, idioma, PARADES, PRODUCCIO, objeto) {
     "use strict";
     //   loader ------------------
     firstLoad();
@@ -234,6 +257,38 @@ function initRestabook(divsToggleP, divsToggleA, idioma, PARADES, PRODUCCIO) {
             }
         });
     }
+    if (objeto === "vins") {
+        $(".accordion-1").accordion({
+            collapsible: true,
+            active: false,
+            header: ".activador-accordion",
+            heightStyle: "content"
+        });
+        $(".accordion-2").accordion({
+            collapsible: true,
+            active: false,
+            header: ".activador-accordion",
+            heightStyle: "content"
+        });
+        $(".accordion-3").accordion({
+            collapsible: true,
+            active: false,
+            header: ".activador-accordion",
+            heightStyle: "content"
+        });
+        $(".accordion-4").accordion({
+            collapsible: true,
+            active: false,
+            header: ".activador-accordion",
+            heightStyle: "content"
+        });
+        $(".accordion-5").accordion({
+            collapsible: true,
+            active: false,
+            header: ".activador-accordion",
+            heightStyle: "content"
+        });
+    };
     //   Background image ------------------
     var a = $(".bg");
     a.each(function (a) {

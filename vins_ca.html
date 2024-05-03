@@ -14,10 +14,11 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <!--=============== css  ===============-->
-    <link type="text/css" rel="stylesheet" href="css/reset.css?v=2">
-    <link type="text/css" rel="stylesheet" href="css/plugins.css?v=2">
-    <link type="text/css" rel="stylesheet" href="css/style.css?v=2">
-    <link type="text/css" rel="stylesheet" href="css/style_vins.css?v=2">
+      <!-- darrer canvi v=4 dia 2-5-24 -->
+    <link type="text/css" rel="stylesheet" href="css/reset.css?v=4">
+    <link type="text/css" rel="stylesheet" href="css/plugins.css?v=4">
+    <link type="text/css" rel="stylesheet" href="css/style.css?v=4">
+    <link type="text/css" rel="stylesheet" href="css/style_vins.css?v=4">
 
     <!--=============== favicons ===============-->
     <link rel="shortcut icon" href="images/favicon.ico">
@@ -64,8 +65,8 @@
                                 <a href="vins_fr.html">Fr</a>
                             </div>
                         </div>
+                        <div class="show-share-btn"><a href="cocktails_ca.html"><i class="fal fa-cocktail"></i></a></div> 
                         <div class="show-share-btn"><a href="index_ca.html"><i class="fal fa-utensils"></i></a></div>
-
                     </div>
                 </div>
             </div>
@@ -93,9 +94,10 @@
                 <section>
                     <nav class="scroll-nav scroll-init">
                         <ul>
-                            <li><a class="scroll-link act-scrlink" href="#menu-section-4"><span
-                                        class="titol4"></span></a>
+                            <li class="visible-cat-1"><a class="scroll-link act-scrlink" href="#menu-section-5"><span
+                                        class="titol5"></span></a>
                             </li>
+                            <li><a class="scroll-link" href="#menu-section-4"><span class="titol4"></span></a></li>
                             <li><a class="scroll-link" href="#menu-section-1"><span class="titol1"></span></a></li>
                             <li><a class="scroll-link" href="#menu-section-2"><span class="titol2"></span></a></li>
                             <li><a class="scroll-link" href="#menu-section-3"><span class="titol3"></span></a></li>
@@ -104,63 +106,101 @@
                     <div class="brush-dec2 brush-dec_bottom"></div>
                     <div class="container">
                         <!-- menu-wrapper-->
-                        <div class="menu-wrapper single-menu fl-wrap" id="menu-section-4" data-scrollax-parent="true">
-                            <div class="menu-wrapper-title fl-wrap">
-                                <div class="menu-wrapper-title-item">
-                                    <h4><span class="titol4"></span></h4>
+                        <div class="accordion-5 visible-cat-1">
+                            <div class="menu-wrapper single-menu fl-wrap activador-accordion" data-scrollax-parent="true">
+                                <div class="menu-wrapper-title fl-wrap">
+                                    <div class="menu-wrapper-title-item">
+                                        <h4><span class="titol5"></span></h4>
+                                    </div>
+                                    <div id="bckgr5" class="bg par-elem"
+                                        data-scrollax="properties: { translateY: '40%' }">
+                                    </div>
+                                    <div class="overlay"></div>
                                 </div>
-                                <div id="bckgr4" class="bg par-elem" data-scrollax="properties: { translateY: '40%' }">
-                                </div>
-                                <div class="overlay"></div>
                             </div>
+                            <div class="menu-wrapper single-menu fl-wrap" id="menu-section-5"></div>
+                            <!-- menu-wrapper end-->
+                            <!-- <div class="dots-separator fl-wrap"><span></span></div> -->
+                            <div class="visible-cat-1"><img class="separador-vins" src="images/separador_vins.png" alt="separador_vins"></div>
                         </div>
-                        <!-- menu-wrapper end-->
-                        <!-- <div class="dots-separator fl-wrap"><span></span></div> -->
-                        <div><img class="separador-vins" src="images/separador_vins.png" alt="separador_vins"></div>
                         <!-- menu-wrapper-->
-                        <div class="menu-wrapper single-menu fl-wrap" id="menu-section-1" data-scrollax-parent="true">
-                            <div class="menu-wrapper-title fl-wrap">
-                                <div class="menu-wrapper-title-item">
-                                    <h4><span class="titol1"></span></h4>
+                        <div class="accordion-1">
+                            <div class="menu-wrapper single-menu fl-wrap activador-accordion"
+                                data-scrollax-parent="true">
+                                <div class="menu-wrapper-title fl-wrap">
+                                    <div class="menu-wrapper-title-item">
+                                        <h4><span class="titol4"></span></h4>
+                                    </div>
+                                    <div id="bckgr4" class="bg par-elem"
+                                        data-scrollax="properties: { translateY: '40%' }">
+                                    </div>
+                                    <div class="overlay"></div>
                                 </div>
-                                <div id="bckgr1" class="bg par-elem" data-scrollax="properties: { translateY: '40%' }">
-                                </div>
-                                <div class="overlay"></div>
                             </div>
+                            <div class="menu-wrapper single-menu fl-wrap" id="menu-section-4"></div>
+                            <!-- menu-wrapper end-->
+                            <!-- <div class="dots-separator fl-wrap"><span></span></div> -->
+                            <div><img class="separador-vins" src="images/separador_vins.png" alt="separador_vins"></div>
                         </div>
-                        <!-- menu-wrapper end-->
-                        <!-- <div class="dots-separator fl-wrap"><span></span></div> -->
-                        <div><img class="separador-vins" src="images/separador_vins.png" alt="separador_vins"></div>
                         <!-- menu-wrapper-->
-                        <div class="menu-wrapper single-menu fl-wrap" id="menu-section-2" data-scrollax-parent="true">
-                            <div class="menu-wrapper-title fl-wrap">
-                                <div class="menu-wrapper-title-item">
-                                    <h4><span class="titol2"></span></h4>
+                        <div class="accordion-2">
+                            <div class="menu-wrapper single-menu fl-wrap activador-accordion"
+                                data-scrollax-parent="true">
+                                <div class="menu-wrapper-title fl-wrap">
+                                    <div class="menu-wrapper-title-item">
+                                        <h4><span class="titol1"></span></h4>
+                                    </div>
+                                    <div id="bckgr1" class="bg par-elem"
+                                        data-scrollax="properties: { translateY: '40%' }">
+                                    </div>
+                                    <div class="overlay"></div>
                                 </div>
-                                <div id="bckgr2" class="bg par-elem" data-scrollax="properties: { translateY: '40%' }">
-                                </div>
-                                <div class="overlay"></div>
                             </div>
+                            <div class="menu-wrapper single-menu fl-wrap" id="menu-section-1"></div>
+                            <!-- menu-wrapper end-->
+                            <!-- <div class="dots-separator fl-wrap"><span></span></div> -->
+                            <div><img class="separador-vins" src="images/separador_vins.png" alt="separador_vins"></div>
                         </div>
-                        <!-- menu-wrapper end-->
-                        <!-- <div class="dots-separator fl-wrap"><span></span></div> -->
-                        <div><img class="separador-vins" src="images/separador_vins.png" alt="separador_vins"></div>
                         <!-- menu-wrapper-->
-                        <div class="menu-wrapper single-menu fl-wrap" id="menu-section-3" data-scrollax-parent="true">
-                            <div class="menu-wrapper-title fl-wrap">
-                                <div class="menu-wrapper-title-item">
-                                    <h4><span class="titol3"></span></h4>
+                        <div class="accordion-3">
+                            <div class="menu-wrapper single-menu fl-wrap activador-accordion"
+                                data-scrollax-parent="true">
+                                <div class="menu-wrapper-title fl-wrap">
+                                    <div class="menu-wrapper-title-item">
+                                        <h4><span class="titol2"></span></h4>
+                                    </div>
+                                    <div id="bckgr2" class="bg par-elem"
+                                        data-scrollax="properties: { translateY: '40%' }">
+                                    </div>
+                                    <div class="overlay"></div>
                                 </div>
-                                <div id="bckgr3" class="bg par-elem" data-scrollax="properties: { translateY: '40%' }">
-                                </div>
-                                <div class="overlay"></div>
                             </div>
+                            <div class="menu-wrapper single-menu fl-wrap" id="menu-section-2"></div>
+                            <!-- menu-wrapper end-->
+                            <!-- <div class="dots-separator fl-wrap"><span></span></div> -->
+                            <div><img class="separador-vins" src="images/separador_vins.png" alt="separador_vins"></div>
                         </div>
-                        <!-- menu-wrapper end-->
-                        <div class="clearfix"></div>
-                        <!-- <div class="bold-separator bold-separator_dark"><span></span></div> -->
-                        <div><img class="separador-vins" src="images/separador_vins.png" alt="separador_vins"></div>
-                        <div class="clearfix"></div>
+                        <!-- menu-wrapper-->
+                        <div class="accordion-4">
+                            <div class="menu-wrapper single-menu fl-wrap activador-accordion"
+                                data-scrollax-parent="true">
+                                <div class="menu-wrapper-title fl-wrap">
+                                    <div class="menu-wrapper-title-item">
+                                        <h4><span class="titol3"></span></h4>
+                                    </div>
+                                    <div id="bckgr3" class="bg par-elem"
+                                        data-scrollax="properties: { translateY: '40%' }">
+                                    </div>
+                                    <div class="overlay"></div>
+                                </div>
+                            </div>
+                            <!-- menu-wrapper end-->
+                            <div class="menu-wrapper single-menu fl-wrap" id="menu-section-3"></div>
+                            <div class="clearfix"></div>
+                            <!-- <div class="bold-separator bold-separator_dark"><span></span></div> -->
+                            <div><img class="separador-vins" src="images/separador_vins.png" alt="separador_vins"></div>
+                            <div class="clearfix"></div>
+                        </div>
                     </div>
                     <div class="section-bg">
                         <div class="bg" data-bg="images/bg/dec/section-bg.png"></div>
@@ -208,11 +248,13 @@
     </div>
     <!-- Main end -->
     <!--=============== scripts  ===============-->
-    <script src="js/jquery.min.js?v=2"></script>
-    <script src="js/plugins.js?v=2"></script>
-    <script src="js/constantes.js?v=2"></script>
-    <script src="js/logica.js?v=2"></script>
-    <script src="js/scripts.js?v=2"></script>
+     <!-- darrer canvi v=3 dia 2-5-24 -->
+    <script src="js/jquery.min.js?v=4"></script>
+    <script src="js/jquery-ui.min.js?v=4"></script>
+    <script src="js/plugins.js?v=4"></script>
+    <script src="js/constantes.js?v=4"></script>
+    <script src="js/logica.js?v=4"></script>
+    <script src="js/scripts.js?v=4"></script>
 </body>
 
 </html>
