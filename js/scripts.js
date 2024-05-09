@@ -81,7 +81,7 @@ const gestionaCarta = (res, idioma, objeto) => {
     //categoria destacts oculta per defecte
     //objeto === "plats" && !res.items.some(item => item.categoria === 1) && $('.visible-cat-1').addClass('ocultar');
     //categoria copas oculta temporalment
-    objeto === "vins" && $('.visible-cat-1').addClass('ocultar');
+    //objeto === "vins" && $('.visible-cat-1').addClass('ocultar');
     objeto === "plats" && $('.visible-cat-1').addClass('ocultar');
     const divsToggleP = [], divsToggleA = [];
     if (objeto === "plats") {
@@ -258,6 +258,7 @@ function initRestabook(divsToggleP, divsToggleA, idioma, PARADES, PRODUCCIO, obj
         });
     }
     if (objeto === "vins") {
+        //lògica accordions
         $(".accordion-1").accordion({
             collapsible: true,
             active: false,
